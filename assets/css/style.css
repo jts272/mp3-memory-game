@@ -13,77 +13,77 @@ h2 {
 }
 
 .container {
-  position: relative;
-  width: 500px;
+  margin-bottom: 35px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 35px;
+  position: relative;
   text-align: center;
+  width: 500px;
 }
 
 .circle {
   border-radius: 50%;
-  position: absolute;
   cursor: pointer;
+  position: absolute;
 }
 
 .circle1 {
+  background-color: #009fe3;
   height: 500px;
   width: 500px;
-  background-color: #009fe3;
 }
 
 .circle2 {
-  height: 400px;
-  width: 400px;
   background-color: #445261;
-  top: 50px;
+  height: 400px;
   left: 50px;
+  top: 50px;
+  width: 400px;
 }
 
 .circle3 {
-  height: 300px;
-  width: 300px;
   background-color: #efb920;
-  top: 100px;
+  height: 300px;
   left: 100px;
+  top: 100px;
+  width: 300px;
 }
 
 .circle4 {
-  height: 200px;
-  width: 200px;
   background-color: #23bbbb;
-  top: 150px;
+  height: 200px;
   left: 150px;
+  top: 150px;
+  width: 200px;
 }
 
 .scorebox {
+  background-color: #e6ecf0;
   border-radius: 25%;
   box-sizing: border-box;
-  position: absolute;
-  background-color: #e6ecf0;
-  height: 80px;
-  width: 80px;
-  top: 210px;
-  left: 210px;
-  text-align: center;
   color: #445261;
   font-size: 3em;
+  height: 80px;
+  left: 210px;
   padding-top: 10px;
+  position: absolute;
+  text-align: center;
+  top: 210px;
+  width: 80px;
 }
 
 .button {
   background-color: #ff5a60;
-  color: #fff;
   border: 0;
-  height: 40px;
-  width: 160px;
   border-radius: 5px;
-  margin: 0 auto;
+  color: #fff;
   display: block;
-  top: 550px;
-  position: relative;
   font-weight: 600;
+  height: 40px;
+  margin: 0 auto;
+  position: relative;
+  top: 550px;
+  width: 160px;
 }
 
 .light {

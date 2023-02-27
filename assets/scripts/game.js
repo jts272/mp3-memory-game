@@ -14,6 +14,8 @@ function newGame() {
   game.playerMoves = [];
   // Call the showScore fn from inside the newGame fn:
   showScore();
+  // Call addTurn fn:
+  addTurn();
 }
 
 // ATTEMPT - function to show the score = should be a single line:
@@ -23,6 +25,15 @@ const showScore = () =>
 
 // ^ CORRECT! ^
 
+const addTurn = () => {
+  // Clear the playerMoves array:
+  game.playerMoves = [];
+  // Push a random index from 0-3 of the choices array to the CPU moves array:
+  game.currentGame.push(game.choices[Math.floor(Math.random() * 4)]);
+  // TODO:
+  // showTurns();
+};
+
 // Add newGame function to the export object:
 
-module.exports = { game, newGame, showScore };
+module.exports = { game, newGame, showScore, addTurn };

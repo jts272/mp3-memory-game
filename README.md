@@ -33,3 +33,11 @@ Boilerplate code used from here: https://github.com/Code-Institute-Solutions/Jes
 ```
 
 Tests will now run in the jsdom environment.
+
+---
+
+### Study notes:
+
+Tests relying on nested functions still appeared to pass, even before the nested
+function was exported/imported. I have still done this part of the process
+though, in line with the lesson content.

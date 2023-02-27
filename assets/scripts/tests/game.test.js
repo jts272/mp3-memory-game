@@ -6,7 +6,7 @@
 
 // IMPORTS TO BE TESTED:
 
-const { game, newGame, showScore } = require("../game");
+const { game, newGame, showScore, addTurn } = require("../game");
 
 // LOAD MOCK DOM BEFORE ALL TESTS:
 beforeAll(() => {
@@ -58,10 +58,19 @@ describe("newGame works correctly", () => {
   test("should empty the playerMoves array", () => {
     expect(game.playerMoves).toEqual([]);
   });
-  test("should empty the currentGame array", () => {
-    expect(game.currentGame).toEqual([]);
-  });
+
+  // COMMENT OUT THIS TEST - NOT IN LINE WITH GAME LOGIC:
+  // test("should empty the currentGame array", () => {
+  //   expect(game.currentGame).toEqual([]);
+  // });
   // ^ ALTERNATIVE: Check that the Array.length === 0 ^
+
+  // ACTUAL TEST WE WANT TO DO BELOW:
+
+  test("should be one move in the CPU's game array", () => {
+    expect(game.currentGame.length).toBe(1);
+  });
+
   test("Should display 0 for el#score", () => {
     // EXPECT INT 0 FROM THE INITIAL GAME OBJECT:
     expect(document.getElementById("score").innerText).toEqual(0);
