@@ -8,4 +8,21 @@ let game = {
 // Export with curly braces because we will be exporting more than one object
 // and function.
 
-module.exports = { game };
+function newGame() {
+  game.score = 0;
+  game.currentGame = [];
+  game.playerMoves = [];
+  // Call the showScore fn from inside the newGame fn:
+  showScore();
+}
+
+// ATTEMPT - function to show the score = should be a single line:
+
+const showScore = () =>
+  (document.getElementById("score").innerText = game.score);
+
+// ^ CORRECT! ^
+
+// Add newGame function to the export object:
+
+module.exports = { game, newGame, showScore };

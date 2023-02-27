@@ -6,7 +6,7 @@
 
 // IMPORTS TO BE TESTED:
 
-const { game } = require("../game");
+const { game, newGame, showScore } = require("../game");
 
 // LOAD MOCK DOM BEFORE ALL TESTS:
 beforeAll(() => {
@@ -17,7 +17,7 @@ beforeAll(() => {
   document.close();
 });
 
-// FIRST FAILING TEST:
+// TEST GAME OBJECT:
 
 describe("game object contains correct keys", () => {
   test("score key exists", () => {
@@ -34,5 +34,36 @@ describe("game object contains correct keys", () => {
   });
   test("choices contain correct ids", () => {
     expect(game.choices).toEqual(["button1", "button2", "button3", "button4"]);
+  });
+});
+
+// TEST newGame FUNCTION, SEPARATE FROM THE GAME OBJECT:
+
+describe("newGame works correctly", () => {
+  // SETUP GAME STATE WITH DUMMY VALUES FOR TESTING PURPOSES:
+  beforeAll(() => {
+    game.score = 42;
+    // ADD DUMMY VALUES TO TEST THE FOLLOWING ARRAYS:
+    game.playerMoves = [1, 3, 5];
+    game.currentGame = [2, 4, 6];
+    // SET DUMMY SCORE ON THE DOM TO SEE IF IT RESETS ON NEW GAME:
+    document.getElementById("score").innerText = "42";
+    // CALL THE FUNCTION WE WANT TO TEST:
+    newGame();
+  });
+  test("should set game score to 0", () => {
+    expect(game.score).toEqual(0);
+  });
+  // TEST THAT THE FOLLOWING ARRAYS ARE EMPTIED ON FUNCTION CALL:
+  test("should empty the playerMoves array", () => {
+    expect(game.playerMoves).toEqual([]);
+  });
+  test("should empty the currentGame array", () => {
+    expect(game.currentGame).toEqual([]);
+  });
+  // ^ ALTERNATIVE: Check that the Array.length === 0 ^
+  test("Should display 0 for el#score", () => {
+    // EXPECT INT 0 FROM THE INITIAL GAME OBJECT:
+    expect(document.getElementById("score").innerText).toEqual(0);
   });
 });
