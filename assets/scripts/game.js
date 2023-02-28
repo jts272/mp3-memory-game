@@ -34,6 +34,15 @@ const addTurn = () => {
   // showTurns();
 };
 
+const lightsOn = (circ) => {
+  // Light up the circle that is selected by id when called:
+  document.getElementById(circ).classList.add("light");
+  // Wait 400ms and turn the light off:
+  setTimeout(() => {
+    document.getElementById(circ).classList.remove("light");
+  }, 400);
+};
+
 // Add newGame function to the export object:
 
-module.exports = { game, newGame, showScore, addTurn };
+module.exports = { game, newGame, showScore, addTurn, lightsOn };

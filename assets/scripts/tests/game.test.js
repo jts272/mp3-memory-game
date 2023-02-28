@@ -6,7 +6,7 @@
 
 // IMPORTS TO BE TESTED:
 
-const { game, newGame, showScore, addTurn } = require("../game");
+const { game, newGame, showScore, addTurn, lightsOn } = require("../game");
 
 // LOAD MOCK DOM BEFORE ALL TESTS:
 beforeAll(() => {
@@ -74,5 +74,35 @@ describe("newGame works correctly", () => {
   test("Should display 0 for el#score", () => {
     // EXPECT INT 0 FROM THE INITIAL GAME OBJECT:
     expect(document.getElementById("score").innerText).toEqual(0);
+  });
+});
+
+describe("gameplay works correctly", () => {
+  // RUNS BEFORE EACH TEST IS RUN, NOT ALL: (Resets each iteration/test)
+  beforeEach(() => {
+    game.score = 0;
+    game.currentGame = [];
+    game.playerMoves = [];
+    addTurn(); // Tests should start with one element in currentGame arr
+  });
+  // RESET STATE AFTER EACH TEST (RITE principle to Isolate each test)
+  afterEach(() => {
+    game.score = 0;
+    game.currentGame = [];
+    game.playerMoves = [];
+  });
+  test("addTurn adds a new turn to the game", () => {
+    addTurn(); // Call the function we want to test functionality of
+    expect(game.currentGame.length).toBe(2);
+  });
+  test("should add correct class to light up the buttons", () => {
+    // Reference the element with the id of the first item in the currentGame
+    // array:
+    let button = document.getElementById(game.currentGame[0]);
+    // Call the lights on function on this element:
+    lightsOn(game.currentGame[0]);
+    // Check that the 'light' class has been added to this element with new
+    // matcher:
+    expect(button.classList).toContain("light");
   });
 });
