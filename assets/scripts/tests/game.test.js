@@ -117,4 +117,12 @@ describe("gameplay works correctly", () => {
     showTurns();
     expect(game.turnNumber).toBe(0);
   });
+  // ATTEMPT: TEST THE KEY IS IN THE GAME OBJECT ONCE NEW GAME IS RUN:
+  // My prediction is that the addTurn function (setup in beforeEach), which
+  // calls the showTurns function, will initialize and assign the key/value:
+  test("turnNumber key exists", () => {
+    expect("turnNumber" in game).toBe(true);
+  });
+  // ANSWER: ADD THE KEY TO THE GLOBAL GAME OBJ AND INITIALIZE TO 0; USE THIS
+  // TEST IN THE SECTION WITH THE OTHER KEY EXISTS TESTS.
 });
