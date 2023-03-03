@@ -12,6 +12,28 @@ function newGame() {
   game.score = 0;
   game.currentGame = [];
   game.playerMoves = [];
+  // Add event listeners:
+  // Get the input elements:
+  for (let circle of document.getElementsByClassName("circle")) {
+    // If their data-listener attr has not yet been set to true:
+    if (circle.getAttribute("data-listener") !== "true") {
+      // Add the event listener on click, with a handler function with the
+      // 'event' param to access the Event object:
+      circle.addEventListener("click", (event) => {
+        // Get the id of the element that was clicked:
+        let move = event.target.getAttribute("id");
+        // Call the lightsOn function on the clicked element:
+        lightsOn(move);
+        // Add the clicked button to the playerMoves array of the game object:
+        game.playerMoves.push(move);
+        // TODO:
+        playerTurn();
+      });
+      // Set the data-listener attr from the default of 'false', to 'true':
+      circle.setAttribute("data-listener", "true");
+    }
+  }
+
   // Call the showScore fn from inside the newGame fn:
   showScore();
   // Call addTurn fn:
@@ -30,7 +52,7 @@ const addTurn = () => {
   game.playerMoves = [];
   // Push a random index from 0-3 of the choices array to the CPU moves array:
   game.currentGame.push(game.choices[Math.floor(Math.random() * 4)]);
-  // TODO:
+
   showTurns();
 };
 

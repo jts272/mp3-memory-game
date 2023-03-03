@@ -125,4 +125,14 @@ describe("gameplay works correctly", () => {
   });
   // ANSWER: ADD THE KEY TO THE GLOBAL GAME OBJ AND INITIALIZE TO 0; USE THIS
   // TEST IN THE SECTION WITH THE OTHER KEY EXISTS TESTS.
+  test("expect data-listener to be true", () => {
+    // Get the elements that share the class 'circle' (i.e., the input elements)
+    const elements = document.getElementsByClassName("circle");
+    // Loop to address each element with the 'circle' class:
+    for (let element of elements) {
+      // Check for data-listener attr value to be 'true' ('false' by default in
+      // HTML). We are checking that the string content is the same.
+      expect(element.getAttribute("data-listener")).toEqual("true");
+    }
+  });
 });
