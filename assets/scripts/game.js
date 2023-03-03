@@ -31,7 +31,7 @@ const addTurn = () => {
   // Push a random index from 0-3 of the choices array to the CPU moves array:
   game.currentGame.push(game.choices[Math.floor(Math.random() * 4)]);
   // TODO:
-  // showTurns();
+  showTurns();
 };
 
 const lightsOn = (circ) => {
@@ -43,6 +43,24 @@ const lightsOn = (circ) => {
   }, 400);
 };
 
+const showTurns = () => {
+  // Establish a new counter for the game object. This will be used as the array
+  // index number for our currentGame array:
+  game.turnNumber = 0;
+  // var to hold an intervallic callback function:
+  let turns = setInterval(() => {
+    // Turn the lights on for the button at the array index:
+    lightsOn(game.currentGame[game.turnNumber]);
+    // Then increment the counter:
+    game.turnNumber++;
+    // If we have reached the last turn in the array, remove the interval on the
+    // variable:
+    if (game.turnNumber >= game.currentGame.length) {
+      clearInterval(turns);
+    }
+  }, 800);
+};
+
 // Add newGame function to the export object:
 
-module.exports = { game, newGame, showScore, addTurn, lightsOn };
+module.exports = { game, newGame, showScore, addTurn, lightsOn, showTurns };

@@ -6,7 +6,14 @@
 
 // IMPORTS TO BE TESTED:
 
-const { game, newGame, showScore, addTurn, lightsOn } = require("../game");
+const {
+  game,
+  newGame,
+  showScore,
+  addTurn,
+  lightsOn,
+  showTurns,
+} = require("../game");
 
 // LOAD MOCK DOM BEFORE ALL TESTS:
 beforeAll(() => {
@@ -104,5 +111,10 @@ describe("gameplay works correctly", () => {
     // Check that the 'light' class has been added to this element with new
     // matcher:
     expect(button.classList).toContain("light");
+  });
+  test("showTurns should update game.turnNumber", () => {
+    game.turnNumber = 42;
+    showTurns();
+    expect(game.turnNumber).toBe(0);
   });
 });
