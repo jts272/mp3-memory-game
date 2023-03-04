@@ -16,6 +16,11 @@ const {
   playerTurn,
 } = require("../game");
 
+// Setup Jest to spy on an instance of a window alert message:
+// Spy on: (object, method). Divert it to an empty function.
+
+jest.spyOn(window, "alert").mockImplementation(() => {});
+
 // LOAD MOCK DOM BEFORE ALL TESTS:
 beforeAll(() => {
   let fs = require("fs");
@@ -144,5 +149,12 @@ describe("gameplay works correctly", () => {
     playerTurn();
     // Expect the score to have increased when the player is correct:
     expect(game.score).toBe(1);
+  });
+  test("should call an alert if the move is wrong", () => {
+    // Purposely push an incorrect string into the playerMoves arr:
+    game.playerMoves.push("wrong");
+    playerTurn();
+    // Expect the alert to display the following string:
+    expect(window.alert).toBeCalledWith("Wrong move!");
   });
 });

@@ -26,7 +26,6 @@ function newGame() {
         lightsOn(move);
         // Add the clicked button to the playerMoves array of the game object:
         game.playerMoves.push(move);
-        // TODO:
         playerTurn();
       });
       // Set the data-listener attr from the default of 'false', to 'true':
@@ -97,6 +96,11 @@ const playerTurn = () => {
       // And add a turn:
       addTurn();
     }
+  } else {
+    // Do this if the answer is wrong:
+    alert("Wrong move!");
+    // Restart the game and run all associated functions:
+    newGame();
   }
 };
 
