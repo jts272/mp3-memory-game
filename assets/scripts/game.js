@@ -13,9 +13,6 @@ let game = {
   // ^ CORRECT! ^
 };
 
-// Export with curly braces because we will be exporting more than one object
-// and function.
-
 function newGame() {
   game.score = 0;
   game.currentGame = [];
@@ -126,7 +123,10 @@ const playerTurn = () => {
   }
 };
 
-// Add newGame function to the export object:
+// Export with curly braces because we will be exporting more than one object
+// and function.
+
+// Add newGame function to the export object: (et cetera...)
 
 module.exports = {
   game,
