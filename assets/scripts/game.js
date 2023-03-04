@@ -21,7 +21,9 @@ function newGame() {
       // 'event' param to access the Event object:
       circle.addEventListener("click", (event) => {
         // REFACTOR: defensive - only accept clicks if the game has started:
-        if (game.currentGame.length > 0) {
+        // REFACTOR 2: additionally check that the game is not in the status of
+        // showing a turnL
+        if (game.currentGame.length > 0 && !game.turnInProgress) {
           // Get the id of the element that was clicked:
           let move = event.target.getAttribute("id");
           // REFACTOR: get reference to the last button clicked and store it in

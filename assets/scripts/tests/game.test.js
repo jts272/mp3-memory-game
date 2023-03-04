@@ -168,4 +168,16 @@ describe("gameplay works correctly", () => {
     expect(game.turnInProgress).toEqual(true);
     // ^ CORRECT! ^
   });
+
+  test("clicking during computer sequence should fail", () => {
+    // Call the function during which input should be disabled:
+    showTurns();
+    // Ensure there is no 'last button' pressed:
+    game.lastButton = "";
+    // Simulate clicking button 2:
+    document.getElementById("button2").click();
+    // We expect that the lastButton var should still be blank (i.e., clicks are
+    // disabled):
+    expect(game.lastButton).toEqual("");
+  });
 });
