@@ -22,7 +22,7 @@ function newGame() {
       circle.addEventListener("click", (event) => {
         // REFACTOR: defensive - only accept clicks if the game has started:
         // REFACTOR 2: additionally check that the game is not in the status of
-        // showing a turnL
+        // showing a turn:
         if (game.currentGame.length > 0 && !game.turnInProgress) {
           // Get the id of the element that was clicked:
           let move = event.target.getAttribute("id");

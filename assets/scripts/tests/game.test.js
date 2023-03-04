@@ -48,6 +48,18 @@ describe("game object contains correct keys", () => {
   test("choices contain correct ids", () => {
     expect(game.choices).toEqual(["button1", "button2", "button3", "button4"]);
   });
+
+  // CHALLENGE: Check that the 'lastButton' and 'turnInProgress' keys exist in
+  // the game object:
+
+  // ATTEMPT:
+
+  test("lastButton key exists", () => {
+    expect("lastButton" in game).toBe(true);
+  });
+  test("turnInProgress key exists", () => {
+    expect("turnInProgress" in game).toBe(true);
+  });
 });
 
 // TEST newGame FUNCTION, SEPARATE FROM THE GAME OBJECT:
