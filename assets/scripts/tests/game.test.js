@@ -13,6 +13,7 @@ const {
   addTurn,
   lightsOn,
   showTurns,
+  playerTurn,
 } = require("../game");
 
 // LOAD MOCK DOM BEFORE ALL TESTS:
@@ -134,5 +135,14 @@ describe("gameplay works correctly", () => {
       // HTML). We are checking that the string content is the same.
       expect(element.getAttribute("data-listener")).toEqual("true");
     }
+  });
+  test("should increment the score if the turn is correct", () => {
+    // Use the 'correct' turn from the currentGame arr, which will contain one
+    // turn from the beforeEach() function:
+    game.playerMoves.push(game.currentGame[0]);
+    // Then call the function for the player's turn:
+    playerTurn();
+    // Expect the score to have increased when the player is correct:
+    expect(game.score).toBe(1);
   });
 });

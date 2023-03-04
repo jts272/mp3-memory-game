@@ -83,6 +83,31 @@ const showTurns = () => {
   }, 800);
 };
 
+const playerTurn = () => {
+  // Get the index of the last element of the playerMoves arr for comparison:
+  let i = game.playerMoves.length - 1;
+  // If the player move is correct:
+  if (game.currentGame[i] === game.playerMoves[i]) {
+    // && If both arrays have the same length (i.e., at end of sequence):
+    if (game.currentGame.length == game.playerMoves.length) {
+      // We can increment the score:
+      game.score++;
+      // Display it:
+      showScore();
+      // And add a turn:
+      addTurn();
+    }
+  }
+};
+
 // Add newGame function to the export object:
 
-module.exports = { game, newGame, showScore, addTurn, lightsOn, showTurns };
+module.exports = {
+  game,
+  newGame,
+  showScore,
+  addTurn,
+  lightsOn,
+  showTurns,
+  playerTurn,
+};
