@@ -199,4 +199,17 @@ describe("gameplay works correctly", () => {
     // disabled):
     expect(game.lastButton).toEqual("");
   });
+
+  // FURTHER TESTING SUGGESTIONS: game-state keys are reset on a new game:
+
+  // ATTEMPT:
+
+  test("lastButton is emptied on new game", () => {
+    // Give a simulated button press:
+    document.getElementById("button3").click();
+    // Call a new game:
+    newGame();
+    // The lastButton var should now be empty:
+    expect(game.lastButton).toEqual("");
+  });
 });
