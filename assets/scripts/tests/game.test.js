@@ -166,5 +166,6 @@ describe("gameplay works correctly", () => {
     showTurns();
     // What we are looking for:
     expect(game.turnInProgress).toEqual(true);
+    // ^ CORRECT! ^
   });
 });

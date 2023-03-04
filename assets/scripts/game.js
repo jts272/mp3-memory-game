@@ -71,6 +71,9 @@ const lightsOn = (circ) => {
 };
 
 const showTurns = () => {
+  // REFACTOR: Create state in game object to signify that a turn is in
+  // progress:
+  game.turnInProgress = true;
   // Establish a new counter for the game object. This will be used as the array
   // index number for our currentGame array:
   game.turnNumber = 0;
@@ -84,6 +87,9 @@ const showTurns = () => {
     // variable:
     if (game.turnNumber >= game.currentGame.length) {
       clearInterval(turns);
+      // REFACTOR: set the turnInProgress status to false, once the CPU turn is
+      // finished:
+      game.turnInProgress = false;
     }
   }, 800);
 };
