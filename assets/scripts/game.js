@@ -3,6 +3,14 @@ let game = {
   currentGame: [],
   playerMoves: [],
   choices: ["button1", "button2", "button3", "button4"],
+  // CHALLENGE: add and initialize additional game-state keys:
+
+  // ATTEMPT:
+
+  lastButton: "",
+  turnInProgress: false,
+
+  // ^ CORRECT! ^
 };
 
 // Export with curly braces because we will be exporting more than one object
