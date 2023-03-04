@@ -20,13 +20,19 @@ function newGame() {
       // Add the event listener on click, with a handler function with the
       // 'event' param to access the Event object:
       circle.addEventListener("click", (event) => {
-        // Get the id of the element that was clicked:
-        let move = event.target.getAttribute("id");
-        // Call the lightsOn function on the clicked element:
-        lightsOn(move);
-        // Add the clicked button to the playerMoves array of the game object:
-        game.playerMoves.push(move);
-        playerTurn();
+        // REFACTOR: defensive - only accept clicks if the game has started:
+        if (game.currentGame.length > 0) {
+          // Get the id of the element that was clicked:
+          let move = event.target.getAttribute("id");
+          // REFACTOR: get reference to the last button clicked and store it in
+          // the game object:
+          game.lastButton = move;
+          // Call the lightsOn function on the clicked element:
+          lightsOn(move);
+          // Add the clicked button to the playerMoves array of the game object:
+          game.playerMoves.push(move);
+          playerTurn();
+        }
       });
       // Set the data-listener attr from the default of 'false', to 'true':
       circle.setAttribute("data-listener", "true");

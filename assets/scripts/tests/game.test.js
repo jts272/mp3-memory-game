@@ -157,4 +157,14 @@ describe("gameplay works correctly", () => {
     // Expect the alert to display the following string:
     expect(window.alert).toBeCalledWith("Wrong move!");
   });
+  // CHALLENGE: Check that the turn in progress key is set to 'true' whilst the
+  // showTurns() function is running:
+
+  // ATTEMPT:
+  test("turnInProgress key is set to true during showTurns function", () => {
+    // Call the function we are testing:
+    showTurns();
+    // What we are looking for:
+    expect(game.turnInProgress).toEqual(true);
+  });
 });
